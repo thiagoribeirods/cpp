@@ -3,7 +3,7 @@
 #include <stdlib.h>
 using namespace std;
 int numeros[TAMANHO];
-numeros[TAMANHO] = {0,22,3,4,5};
+//int numeros[TAMANHO] = {0,22,3,4,5};
 //==============================================================================000
 // Metodo para imprimir o vetor.
 void imprimir() {
@@ -57,28 +57,32 @@ string alterar(int index1, int index2){
     return "Deu certo!!";
   }
 }
-int menor_maior(int dec){
-  //localizar o maior
-  if(dec ==1){
-    int i = 0,j = 0, aux = 0;
-    for(i = 0; i < TAMANHO; i++){
-      for(j=0;j<TAMANHO;j++){
-        if (numeros[i] > numeros[j]){
-         aux = numeros[i];
-          return aux;
-      }
+
+int maiorValor(){
+
+  int aux = 0 ;
+
+  for(int i; i < TAMANHO; i++){
+    //[15,3,4,5,6,0]
+    if(numeros[i] > aux){
+      aux = numeros[i];
     }
   }
-  }else{
-    int i = 0,j = 0,aux = 0;
-    for(i=0;j<TAMANHO;i++){
-      if(numeros[i]<numeros[j]){
-        aux = numeros[i];
-        return aux;
-      }
-    }
-  }
+  return aux;
 }
+
+int menorValor(){
+  int aux;
+  for(int i = 0; i< TAMANHO; i++){
+    if(numeros[i] < aux){
+      aux = numeros[i];
+    }
+  }
+  return aux;
+}
+
+
+ 
 /**
 * Excluir um elemento do vetor. Atribui zero `a posicao e retorna o
 * elemento (valor).
@@ -165,14 +169,11 @@ cout << "\n\n";
 } else if (opc == 5) {
   //localizar o maior e menor
   int maior;
-  int dec;
-  dec = 1;
-  maior = menor_maior(dec);
-  cout << "O maior número é " << maior;
-  dec = 2;
+  maior = maiorValor();
+  cout << "Maior -> " << maior;
   int menor;
-  menor = menor_maior(dec);
-  cout << "O menor número é" << menor;
+  menor = menorValor();
+  cout << "Menor -> " << menor;
 } else if (opc == 6) {
 } else if (opc == 7) {
 } else if (opc == 8) {
