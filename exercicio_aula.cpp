@@ -3,20 +3,31 @@
 #include <stdlib.h>
 using namespace std;
 int numeros[TAMANHO];
+int numeros_copia[TAMANHO];
 //int numeros[TAMANHO] = {0,22,3,4,5};
-//==============================================================================000
+//==============================================================================
 // Metodo para imprimir o vetor.
-void imprimir() {
-cout << "\n[ ";
-for (int i = 0; i < TAMANHO; i++) {
-cout << numeros[i] << " ";
-}
-cout << "]";
+void imprimir(int dec) {
+  if (dec == 1){
+    cout << "Cópia do vetor!!!";
+    cout << "\n[ ";
+    for (int i = 0; i < TAMANHO; i++) {
+        cout << numeros_copia[i] << " ";
+    }
+    cout << "]";
+
+  }
+  else{
+    cout << "\n[ ";
+    for (int i = 0; i < TAMANHO; i++) {
+    cout << numeros[i] << " ";
+    }
+    cout << "]";
+  }
 }
 //------------------------------------------------------------------------------
 /**
 * Metodo para incluir um elemento no vetor. A posicao tem que estar vaga
-
 * (valor do elemento igual a zero). O novo elemento tem que ser maior que
 * zero.
 *
@@ -81,8 +92,53 @@ int menorValor(){
   return aux;
 }
 
+//Ordenando
+int crescente(){
+  int aux = 0;
+  for(int i; i < TAMANHO; i++){
+    for(int j = 1; j<TAMANHO; j++){
+      if (numeros[i] < numeros [j]){
+        aux = numeros[i];
+        numeros[i] = numeros[j];
+        numeros[j] = aux;
+      }
+    }
+  } 
+}
 
- 
+int decrescente(){
+  int aux = 0;
+  for(int i; i < TAMANHO; i++){
+    for(int j = 1; j<TAMANHO; j++){
+      if (numeros[i] > numeros [j]){
+        aux = numeros[i];
+        numeros[i] = numeros[j];
+        numeros[j] = aux;
+      }
+    }
+  } 
+}
+
+
+int ordem(){
+  int aux = 0;
+  //copiando
+  for (int i; i<TAMANHO;i++){
+    numeros_copia[i] = numeros[i];
+  }
+
+  //ordenando
+  for(int i; i < TAMANHO; i++){
+    for(int j = 1; j<TAMANHO; j++){
+      if (numeros[i] < numeros [j]){
+        aux = numeros_copia[i];
+        numeros_copia[i] = numeros_copia[j];
+        numeros_copia[j] = aux;
+      }
+    }
+  }  
+  return 1;
+}
 /**
 * Excluir um elemento do vetor. Atribui zero `a posicao e retorna o
 * elemento (valor).
@@ -129,7 +185,8 @@ cin >> opc;
 if (opc == 0) {
 break;
 } else if (opc == 1) {
-imprimir();
+int dec = 0;
+imprimir(dec);
 cout << "\n\n";
 system("PAUSE");
 } else if (opc == 2) {
@@ -175,8 +232,13 @@ cout << "\n\n";
   menor = menorValor();
   cout << "Menor -> " << menor;
 } else if (opc == 6) {
+  crescente();
 } else if (opc == 7) {
+  decrescente();
 } else if (opc == 8) {
+  int dec = 0;
+  dec = ordem();
+  imprimir(dec);
 }
 }
 system("PAUSE");
@@ -184,4 +246,3 @@ cout << "\n-------------------------------------------------";
 cout << "\n\nObrigado e ate' a proxima vez.\n\n\n";
 return 0;
 }
-
