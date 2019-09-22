@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 //criando max heap
-void heapmax(int *vetor, int tamanho, int i)
+void afunda(int *vetor, int tamanho, int i)
 {
 	int r, valor;
 	valor = vetor[i];
@@ -23,7 +23,7 @@ void heapmax(int *vetor, int tamanho, int i)
 	
 }
 //def para ordenar
-void afunda(int *vetor, int tamanho)
+void heapsort(int *vetor, int tamanho)
 {
 	int i = 0, aux = 0;
 	for(i = tamanho/2; i >= 0; i--) heapmax(vetor, tamanho, i); //precisa transformar/verificar se é max heap
