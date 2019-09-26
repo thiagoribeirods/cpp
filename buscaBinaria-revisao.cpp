@@ -1,10 +1,16 @@
 #include <iostream>
 using namespace std;
 string buscaBin(int *vetor, int high, int buscar){
-  int low = 0, m = 0;
+
+//O vetor precisa estar ordenad
+
+  int low = 0, m = 0, cont = 0;
     while(low<=high){
+    cont+=1;
+    
     m = (low+high)/2;
     if(buscar == vetor[m]){
+      cout <<"Comparações -> " << cont << endl;
       return "Encontrei";
     }
   else if(buscar < vetor[m]){
@@ -14,6 +20,7 @@ string buscaBin(int *vetor, int high, int buscar){
   }
   }
 
+  cout <<"Comparações -> " << cont;
   return "Não encontrei";
 
 }
@@ -39,5 +46,10 @@ int main() {
   int high = sizeof(vetor)/4; string resultado;
   resultado = buscaBin(vetor, high, buscar);
   cout << resultado;
+
+
+
+
+
+
 }
-//Revisão
