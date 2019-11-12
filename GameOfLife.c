@@ -46,7 +46,7 @@ void proximaGeracao(int mapa[15][15], int quantidadeDeGeracoes)
 					
 				}
 				//condição para nascer uma célula
-				else if(mapa[a][b] == 1 && vivos == 3)
+				else if(mapa[a][b] == 0 && vivos == 3)
 				{
 					vetProximaGeracao[a][b] = 1;
 				}
