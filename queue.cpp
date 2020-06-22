@@ -14,24 +14,24 @@ public:
 		this->v = v;
 		this->next = NULL;
 	}
-
-	int getValue() // obtém o valor
+	//gets
+	int getValue()
 	{
 		return v;
 	}
 
-	Node* getNext() // obtém o próximo Node
+	Node* getNext() 
 	{
 		return next;
 	}
-
-	void setNext(Node* node) // seta o próximo Node
+	//set
+	void setNext(Node* node) 
 	{
 		next = node;
 	}
 };
 
-// classe Queue
+// classe Fila
 class Queue
 {
 private:
@@ -48,17 +48,11 @@ public:
 
 	Queue(int v)
 	{
-		// se passar elemento, então cria Nodevo Node
 		head = new Node(v);
 		tail = head;
 	}
 
-	virtual ~Queue() // destrutor
-	{
-		delete head;
-	}
-
-	void show() // mostra todos os elementos da Queue
+	void show() 
 	{
 		cout << "\n \t -- Exibindo \n";
 		Node* c = head;
@@ -67,7 +61,7 @@ public:
 			cout << "\n Não há elementos na fila! \n";
 		else
 		{
-			while(c) // percorre a Queue
+			while(c) 
 			{
 				cout << c->getValue() << endl;
 				c = c->getNext();
